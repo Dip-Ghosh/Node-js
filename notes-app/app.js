@@ -2,7 +2,7 @@ const validator = require('validator');
 const yargs = require('yargs');
 const {hideBin} = require('yargs/helpers');
 const chalk = require('chalk');
-const getNotes = require('./note.js');
+const notes = require('./note.js');
 
 
 yargs(hideBin(process.argv))
@@ -17,15 +17,14 @@ yargs(hideBin(process.argv))
                demandOption: true,
                type: 'string',
            },
-            description:{
+            body:{
               describe: 'Description of the note',
               demandOption: true,
               type: 'string',
             }
         },
         handler: function (argv) {
-            console.log('Title:' + argv.title);
-            console.log('Description:' + argv.description);
+            notes.addNote(argv.title, argv.body);
         }
     })
     //removing command

@@ -1,2 +1,0 @@
-This file is written to a note without appending. 
-This file is written to a note with  appending
