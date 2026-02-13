@@ -11,51 +11,51 @@ yargs(hideBin(process.argv))
     .command({
         command: 'add',
         describe: 'Add a new note',
-        builder:  {
-           title:{
-               describe: 'Title of the note',
-               demandOption: true,
-               type: 'string',
-           },
-            body:{
-              describe: 'Description of the note',
-              demandOption: true,
-              type: 'string',
+        builder: {
+            title: {
+                describe: 'Title of the note',
+                demandOption: true,
+                type: 'string',
+            },
+            body: {
+                describe: 'Description of the note',
+                demandOption: true,
+                type: 'string',
             }
         },
-        handler: function (argv) {
-            notes.addNote(argv.title, argv.body);
-        }
+        handler: (argv) => notes.addNote(argv.title, argv.body)
     })
     //removing command
     .command({
         command: 'remove',
         describe: 'Remove a note',
-        builder:  {
+        builder: {
             title: {
                 describe: 'Title of the note',
                 demandOption: true,
                 type: 'string',
             }
         },
-        handler: function (argv) {
-            notes.removeNote(argv.title);
-        }
+        handler: (argv) => notes.removeNote(argv.title)
+
     })
     //list command
     .command({
         command: 'list',
         describe: 'List a note',
-        handler: function () {
-            console.log(chalk.blue('List a note...'));
-        }
+        handler: () => notes.listNotes()
     })
     //read command
     .command({
         command: 'read',
         describe: 'Read a note',
-        handler: function () {
-            console.log(chalk.blue('Read a note...'));
-        }
+        builder: {
+            title: {
+                describe: 'Title of the note',
+                demandOption: true,
+                type: 'string',
+            }
+        },
+        handler: (argv) => notes.readNote(argv.title)
     })
     .parse();
