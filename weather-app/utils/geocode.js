@@ -4,7 +4,6 @@ const geoCode = (address, callback) => {
     const url = 'https://nominatim.openstreetmap.org/search?q=' + address + '&format=json';
 
     request({url: url, json: true}, (error, response) => {
-        console.log(error, response);
         if (error) {
             callback('Unable to connect to openstreetmap service!.', undefined);
         } else if (response.body.length === 0) {
