@@ -17,7 +17,7 @@ yargs(hideBin(process.argv))
             }
         },
         handler: (argv) => {
-            geoCode(argv.name, (error, geo) => {
+            geoCode(argv.name, (error, { geo.location:location}) => {
                 if (error) {
                     return console.log(error);
                 }
