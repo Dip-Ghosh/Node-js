@@ -17,17 +17,17 @@ yargs(hideBin(process.argv))
             }
         },
         handler: (argv) => {
-            geoCode(argv.name, (error, { geo.location:location}) => {
+            geoCode(argv.name, (error, { location }) => {
                 if (error) {
                     return console.log(error);
                 }
 
-                forecast(geo.location, 'f', (error, data) => {
+                forecast(location, 'f', (error, {name, country, temperature, feelslike }) => {
                     if (error) {
                         return console.log(error);
                     }
 
-                    console.log(data.name + ',' + data.country + ' .It is currently ' + data.temperature + ' degress out. There is a ' + data.feelslike + '% chance of rain');
+                    console.log(name + ',' + country + ' .It is currently ' + temperature + ' degress out. There is a ' + feelslike + '% chance of rain');
                 });
             });
         }
