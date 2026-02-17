@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72c7f911-2616-4dfb-b05e-8ee15c17685e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/playground/es6-object.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/.idea/playground.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playground/.idea/vcs.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +39,7 @@
     "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/dip-ghosh/code/node-js/playground",
+    "last_opened_file_path": "/home/dip-ghosh/code/node-js/web-server",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,6 +75,7 @@
       <workItem from="1771252259033" duration="1386000" />
       <workItem from="1771257678447" duration="193000" />
       <workItem from="1771258536522" duration="943000" />
+      <workItem from="1771340963583" duration="863000" />
     </task>
     <servers />
   </component>
