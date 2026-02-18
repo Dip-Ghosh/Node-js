@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72c7f911-2616-4dfb-b05e-8ee15c17685e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/playground/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/.idea/playground.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/playground/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +37,7 @@
     "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/dip-ghosh/code/node-js/web-server",
+    "last_opened_file_path": "/home/dip-ghosh/code/node-js/linkedIn-learning",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,6 +74,7 @@
       <workItem from="1771257678447" duration="193000" />
       <workItem from="1771258536522" duration="943000" />
       <workItem from="1771340963583" duration="863000" />
+      <workItem from="1771422147180" duration="116000" />
     </task>
     <servers />
   </component>
