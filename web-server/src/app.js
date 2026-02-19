@@ -18,7 +18,7 @@ hbs.registerPartials(partialsPath);
 //setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
-app.get('/', (req, res) => {
+app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
         name: 'Dip'
@@ -45,6 +45,14 @@ app.get('/weather', (req, res) => {
         forecast: 'Weather Weather',
         location: 'Dhaka'
     });
+})
+
+
+app.get('*any', (req, res) => {
+    res.render('404', {
+        error_title: '404: Page Not Found',
+        error_description: 'Oops! The page you are looking for doesn\'t exist.',
+    })
 })
 
 app.listen(3000, () => {
