@@ -3,6 +3,7 @@ const express = require('express');
 const hbs = require('hbs');
 const geoCode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
+const serverless = require('serverless-http');
 
 const app = express();
 
@@ -88,7 +89,8 @@ app.get('*any', (req, res) => {
 })
 
 
-const greeter =
+module.exports.handler = serverless(app);
+
 app.listen(3000, () => {
     console.log('Express server started on port 3000');
 });

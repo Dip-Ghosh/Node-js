@@ -1,0 +1,12 @@
+[functions]
+  included_files = ["templates/**"]
+
+[build]
+  command = "npm install"
+  publish = "public"      # Tells Netlify to look at your main folder
+  functions = "src"    # Tells Netlify your server code is here
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/app" # Replace 'app' with your filename (e.g., index)
+  status = 200
