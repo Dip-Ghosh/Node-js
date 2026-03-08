@@ -10,12 +10,50 @@ console.log(id.id.length);
 console.log(id.toHexString().length);
 console.log(id.getTimestamp());
 
-// async function connectToDatabase() {
-//     try {
-//         await client.connect();
-//         console.log('Connected to MongoDB server');
-//         const db = client.db(databaseName);
-//
+async function connectToDatabase() {
+    try {
+        await client.connect();
+        console.log('Connected to MongoDB server');
+        const db = client.db(databaseName);
+        // const updatePromise = db.collection('users').updateOne(
+        //     {_id: new ObjectId("69a452afaf11261781c7a660")},
+        //     {$set: {name: 'DIPPP'},
+        //         '$inc': {age: 1}
+        //     }).
+        // then((result) => {
+        //     console.log(result);
+        // }).catch((error) => {
+        //     console.log(error);
+        // })
+
+        // db.collection('tasks').updateMany({
+        //     completed: true
+        // }, {
+        //     $set: {completed: false}
+        // }).then((result) => {
+        //     console.log(result.modifiedCount);
+        // }).catch((error) => {
+        //     console.log(error);
+        // })
+
+
+        // db.collection('users').deleteMany({
+        //     age: 25
+        // }).then((result) => {
+        //     console.log(result.deletedCount);
+        // }).catch((error) => {
+        //     console.log(error);
+        // })
+
+        db.collection('tasks').deleteOne({
+            title: "Task 1"
+        }).then((result) => {
+            console.log(result.deletedCount);
+        }).catch((error) => {
+            console.log(error);
+        })
+
+
 //         // Insert a single document
 //         db.collection('users').insertOne({
 //             _id:  id,
@@ -71,10 +109,10 @@ console.log(id.getTimestamp());
 //         console.log(result);
 //
 //
-//     } catch (error) {
-//         console.error('Unable to connect to MongoDB server:', error);
-//     }
-// }
+    } catch (error) {
+        console.error('Unable to connect to MongoDB server:', error);
+    }
+}
 
 
 connectToDatabase();
