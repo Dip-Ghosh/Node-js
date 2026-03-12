@@ -64,7 +64,7 @@
     "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/dip-ghosh/code/node-js/express-essentials",
+    "last_opened_file_path": "/home/dip-ghosh/code/laravel-env-checker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -77,7 +77,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.31033.138" />
+        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.31033.138" />
       </set>
     </attachedChunks>
   </component>
@@ -92,6 +93,7 @@
       <workItem from="1772201843275" duration="1073000" />
       <workItem from="1772202925848" duration="17000" />
       <workItem from="1772202944130" duration="287000" />
+      <workItem from="1773219664197" duration="10000" />
     </task>
     <servers />
   </component>

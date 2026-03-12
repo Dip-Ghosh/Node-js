@@ -15,7 +15,6 @@ doWorkCallback((error, result) => {
 })
 
 //promise
-
 const doWorkPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve([2, 4, 5])
@@ -28,3 +27,30 @@ doWorkPromise.then((result)=> {
 }).catch((error)=> {
     console.log('error', error);
 });
+
+const add = (a, b) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(a + b);
+        }, 2000)
+    })
+}
+//
+// add(2, 3).then((result) =>{
+//     console.log(result)
+//     add(result, 3).then((result) => {
+//         console.log(result)
+//     })
+// }).catch((e) => {
+//     console.log(e)
+// })
+
+//promise chaining
+add(1,1).then((sum) => {
+    console.log(sum);
+    return add(sum, 2);
+}).then((sum) => {
+    console.log(sum);
+}).catch((e) => {
+    console.log(e);
+})
