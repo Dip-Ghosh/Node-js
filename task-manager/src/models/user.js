@@ -49,6 +49,15 @@ const userSchema = new mongoose.Schema({
     }]
 })
 
+userSchema.methods.toJSON =  function () {
+    const user = this;
+    const userObject = user.toObject();
+    delete userObject.password;
+    delete userObject.tokens
+
+    return userObject;
+}
+
 //generate token
 userSchema.methods.generateAuthToken = async function () {
     const user = this;
@@ -86,6 +95,7 @@ userSchema.pre('save', async function () {
         user.password = await bcrypt.hash(user.password, 10);
     }
 })
+
 
 const User = mongoose.model('User', userSchema);
 

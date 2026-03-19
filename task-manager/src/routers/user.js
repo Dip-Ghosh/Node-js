@@ -22,9 +22,10 @@ router.post('/users/login', async (req, res) => {
         const user = await User.findByCredentials(req.body.email, req.body.password);
         const token = await user.generateAuthToken()
 
-        res.status(200).send({user, token});
+        res.status(200).send({
+            user, token
+        });
     } catch (error) {
-        console.log(error);
         res.status(400).send(error);
     }
 })
@@ -83,7 +84,7 @@ router.get('/users/:id', async (req, res) => {
     }
 })
 
-router.patch('/users/:id', async (req, res, next) => {
+router.patch('/users/me',  auth, async (req, res) => {
     const updates = Object.keys(req.body);
     const allowedUpdates = ['name', 'email', 'age', 'password'];
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
@@ -93,18 +94,10 @@ router.patch('/users/:id', async (req, res, next) => {
     }
 
     try {
-        const user = await User.findById(req.params.id);
 
-        if (!user) {
-            return res.status(404).send({error: 'User not found'});
-        }
-
-        updates.forEach((update) => user[update] = req.body[update])
-
-        await user.save();
-        // const user = await User.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true});
-
-        res.status(200).send(user);
+        updates.forEach((update) => req.user[update] = req.body[update])
+        await req.user.save();
+        res.status(200).send(req.user);
 
     } catch (error) {
         console.log(error);
@@ -112,13 +105,10 @@ router.patch('/users/:id', async (req, res, next) => {
     }
 })
 
-router.delete('/users/:id', async (req, res) => {
+router.delete('/users/me', auth, async (req, res) => {
     try {
-        const user = await User.findByIdAndDelete(req.params.id);
-        if (!user) {
-            return res.status(404).send();
-        }
-        res.status(204).send(user);
+       await req.user.deleteOne();
+       res.status(204).send(req.user);
 
     } catch (error) {
         res.status(500).send(error);
