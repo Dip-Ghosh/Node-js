@@ -12,7 +12,6 @@ router.post('/users', async (req, res) => {
 
         res.status(201).send({user, token});
     } catch (error) {
-        console.log(error);
         res.status(400).send(error);
     }
 })
@@ -22,9 +21,7 @@ router.post('/users/login', async (req, res) => {
         const user = await User.findByCredentials(req.body.email, req.body.password);
         const token = await user.generateAuthToken()
 
-        res.status(200).send({
-            user, token
-        });
+        res.status(200).send({user, token});
     } catch (error) {
         res.status(400).send(error);
     }
@@ -39,7 +36,7 @@ router.post('/users/logout', auth, async (req, res) => {
         await req.user.save();
 
         res.status(200).send('logout')
-    }catch(error) {
+    } catch (error) {
         res.status(500).send(error);
     }
 })
@@ -47,7 +44,6 @@ router.post('/users/logout', auth, async (req, res) => {
 //logout all session
 router.post('/users/logoutAll', auth, async (req, res) => {
     try {
-
         req.user.tokens = [];
         await req.user.save();
         res.status(200).send('logout')
@@ -56,17 +52,17 @@ router.post('/users/logoutAll', auth, async (req, res) => {
     }
 })
 
-router.get('/users',auth, async (req, res) => {
+router.get('/users', auth, async (req, res) => {
     try {
-        const users = await User.find({_id:req});
+        const users = await User.find({_id: req});
         res.status(200).send(users);
     } catch (error) {
         res.status(500).send(error);
     }
 })
 
-router.get('/users/me',auth, async (req, res) => {
-   res.status(200).send({user: req.user});
+router.get('/users/me', auth, async (req, res) => {
+    res.status(200).send({user: req.user});
 })
 
 router.get('/users/:id', async (req, res) => {
@@ -84,7 +80,7 @@ router.get('/users/:id', async (req, res) => {
     }
 })
 
-router.patch('/users/me',  auth, async (req, res) => {
+router.patch('/users/me', auth, async (req, res) => {
     const updates = Object.keys(req.body);
     const allowedUpdates = ['name', 'email', 'age', 'password'];
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
@@ -94,7 +90,6 @@ router.patch('/users/me',  auth, async (req, res) => {
     }
 
     try {
-
         updates.forEach((update) => req.user[update] = req.body[update])
         await req.user.save();
         res.status(200).send(req.user);
@@ -107,8 +102,8 @@ router.patch('/users/me',  auth, async (req, res) => {
 
 router.delete('/users/me', auth, async (req, res) => {
     try {
-       await req.user.deleteOne();
-       res.status(204).send(req.user);
+        await req.user.deleteOne();
+        res.status(204).send(req.user);
 
     } catch (error) {
         res.status(500).send(error);
