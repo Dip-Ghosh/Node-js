@@ -9,7 +9,6 @@ router.post('/users', async (req, res) => {
     try {
         await user.save();
         const token = await user.generateAuthToken()
-
         res.status(201).send({user, token});
     } catch (error) {
         res.status(400).send(error);
@@ -93,9 +92,7 @@ router.patch('/users/me', auth, async (req, res) => {
         updates.forEach((update) => req.user[update] = req.body[update])
         await req.user.save();
         res.status(200).send(req.user);
-
     } catch (error) {
-        console.log(error);
         res.status(400).send(error);
     }
 })
@@ -104,7 +101,6 @@ router.delete('/users/me', auth, async (req, res) => {
     try {
         await req.user.deleteOne();
         res.status(204).send(req.user);
-
     } catch (error) {
         res.status(500).send(error);
     }

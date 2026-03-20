@@ -4,14 +4,12 @@ const User = require('../models/user');
 const auth = async (req, res, next) => {
     try {
         const token = req.header('Authorization').replace('Bearer ', '');
-
         if (!token) {
             throw new Error('Token is missing');
         }
 
         const decodedToken = jwt.verify(token, 'secret');
         const user = await User.findById({_id:decodedToken._id, 'tokens.token':token})
-
         if (!user) {
             throw new Error('UNAUTHORIZED');
         }
